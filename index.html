@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ascii-Art-Web</title>
+</head>
+<style>
+    body{
+        background-color: #fdfdf7;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    input[type=submit], input[type=radio] {
+        background-color: #04AA6D;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 8px 16px;
+        text-decoration: none;
+        margin: 2px 1px;
+        cursor: pointer;
+        font-size: large;
+        font-weight: bold;
+}
+</style>
+<body>
+    <h1>ASCII ART WEB </h1>
+
+    <form action="">
+        <label style="font-weight: bold;" for="fname">Write text</label><br><br>
+        <input style="width: 30em; height: 25px; font-size: 20px; border-radius: 10px;border-width: 1px;"  type="text" id="fname"><br><br>
+        <input type="submit" value="Submit" style="float: right;">
+      </form> 
+
+    <h3>Choose a banner:</h3>
+    <form>
+      <input type="radio" id="standard" name="choice_banner" value="standard.txt">
+      <label for="standard">STANDARD</label><br>
+      <input type="radio" id="shadow" name="choice_banner" value="shadow.txt">
+      <label for="shadow">SHADOW</label><br>
+      <input type="radio" id="thinkertoy" name="choice_banner" value="thinkertoy.txt">
+      <label for="thinkertoy">THINKERTOY</label>
+    </form> <br/>
+    <div>
+        <form>
+            <label style="font-weight: bold;" for="fname">Result :</label><br><br>
+            <textarea rows = "35" cols = "200" name = "result" style="border-radius: 10px;border-width: 1px; font-weight: bold;">
+            </textarea>
+         </form>
+
+    </div>
+    
+</body>
+</html>
