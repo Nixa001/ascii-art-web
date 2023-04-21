@@ -4,56 +4,126 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Ascii-Art-Web</title>
 </head>
 <style>
-    body{
-        background-color: #fdfdf7;
+    h1{
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
+        align-items: center;
     }
-    input[type=submit], input[type=radio] {
-        background-color: #04AA6D;
-        border: none;
-        border-radius: 5px;
-        color: white;
-        padding: 8px 16px;
-        text-decoration: none;
-        margin: 2px 1px;
-        cursor: pointer;
-        font-size: large;
-        font-weight: bold;
+    body{
+        color: #4D4637;
+    }
+    /* Style inputs, select elements and textareas */
+input[type=text], select, textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #89B6A5;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* Style the label to display next to the inputs */
+label {
+  margin-left: 2px;  
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #C8A936;
+  font-weight: bold;
+  color: white;
+  margin-top: 6px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float:right;
+}
+
+/* Style the container */
+.container {
+  border-radius: 5px;
+  background-color: #fcfff1;
+  padding: 20px;
+}
+
+/* Floating column for labels: 25% width */
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+/* Floating column for inputs: 75% width */
+.col-75 {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+}
+option{
+    color: #4D4637;
+  font-weight: 500;
+}
+/* Floating column for inputs: 75% width */
+.col-100 {
+  width: 100%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
 }
 </style>
 <body>
-    <h1>ASCII ART WEB </h1>
-
-    <form action="">
-        <label style="font-weight: bold;" for="fname">Write text</label><br><br>
-        <input style="width: 30em; height: 25px; font-size: 20px; border-radius: 10px;border-width: 1px;"  type="text" id="fname"><br><br>
-        <input type="submit" value="Submit" style="float: right;">
-      </form> 
-
-    <h3>Choose a banner:</h3>
-    <form>
-      <input type="radio" id="standard" name="choice_banner" value="standard.txt">
-      <label for="standard">STANDARD</label><br>
-      <input type="radio" id="shadow" name="choice_banner" value="shadow.txt">
-      <label for="shadow">SHADOW</label><br>
-      <input type="radio" id="thinkertoy" name="choice_banner" value="thinkertoy.txt">
-      <label for="thinkertoy">THINKERTOY</label>
-    </form> <br/>
-    <div>
-        <form>
-            <label style="font-weight: bold;" for="fname">Result :</label><br><br>
-            <textarea rows = "35" cols = "200" name = "result" style="border-radius: 10px;border-width: 1px; font-weight: bold;">
-            </textarea>
-         </form>
-
-    </div>
-    
+    <div class="container">
+        <form action="action_page.php">
+            <h1>ASCII-ART-WEB</h1>
+          <div class="row">
+            <div class="col-25">
+              <label for="fname"></label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="fname" name="firstname" placeholder="Your text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            </div>
+            <div class="col-75">
+                <label for="banner">Choise Banner</label>
+              <select id="banner" name="banner">
+                <option value="standard">Standard</option>
+                <option value="shadow">Shadow</option>
+                <option value="thinkertoy">Thinkertoy</option>
+              </select>
+              <div class="row">
+                <input type="submit" value="Submit">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-100">
+              <textarea id="result" name="result" placeholder="Result here" style="height:450px"></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
 </body>
 </html>
