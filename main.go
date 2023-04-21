@@ -3,13 +3,12 @@ package main
 import (
 	"html/template"
 	"net/http"
+	"fmt"
 )
 
-type Page struct {
-	Valeur string
+type Page struct{
+	value string
 }
-
-var templates = template.Must(template.ParseFiles("index.html"))
 
 func main() {
 	http.HandleFunc("/home", homeHandler)
@@ -17,8 +16,10 @@ func main() {
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	p := Page{Valeur: "mon premier essai"}
+	var templates = template.Must(template.ParseFiles("templates/index.html"))
+	p:=Page{value: "test"}
 	err := templates.ExecuteTemplate(w, "index.html", p)
+	fmt.Println("Server Running & Listening to port 8080")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
