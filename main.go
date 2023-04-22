@@ -19,7 +19,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 	var templates = template.Must(template.ParseFiles("templates/index.html"))
 	p:=Page{value: "test"}
 	err := templates.ExecuteTemplate(w, "index.html", p)
-	fmt.Println("Server Running & Listening to port 8080")
+	fmt.Println("Server started  to port 8080")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
