@@ -1,22 +1,45 @@
 package handlers
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 )
 
-func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "home")
-	inputValue := r.FormValue("inputValue")
-	banner:= r.FormValue("banner")
-	fmt.Println(inputValue, banner)
+// var tpl *template.Template
+
+//	func renderTemplate() {
+//		renderTemplate(w, "home")
+//	}
+func ServerHandler(w http.ResponseWriter, r *http.Request) {
+	tpl := template.Must(template.ParseGlob("templates/*.html"))
+	tpl.ExecuteTemplate(w, "index.html", nil)
+	// renderTemplate(w, "home")
 }
-func renderTemplate(w http.ResponseWriter, tmpl string) {
-	t, err := template.ParseFiles("./templates/" + tmpl + ".html")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+
+func HomeHandler(w http.ResponseWriter, r *http.Request) {
+	tpl := template.Must(template.ParseGlob("templates/*.html"))
+
+	if r.Method != "POST" {
+		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
-	t.Execute(w, nil)
+	input := r.FormValue("inputValue")
+	d := struct {
+		inputValue string
+	}{
+		inputValue: input,
+	}
+	tpl.ExecuteTemplate(w, "home.html", d)
+
 }
+
+// renderTemplate(w, "home")
+
+// func renderTemplate(w http.ResponseWriter, tmpl string) {
+// 	t, err := template.ParseFiles("./templates/" + tmpl + ".html")
+// 	if err != nil {
+// 		http.Error(w, err.Error(), http.StatusInternalServerError)
+// 		return
+// 	}
+// 	t.Execute(w, nil)
+// }
