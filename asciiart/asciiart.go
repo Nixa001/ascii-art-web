@@ -9,7 +9,7 @@ import (
 var HeightChar = 9
 var tabChar = map[int][]string{}
 
-func RecupAsciiArt(textInput, bannerName string) string {
+func AsciiArt(textInput, bannerName string) string {
 	var tabChars []string
 	scanner, err := ioutil.ReadFile("./asciiart/banner/" + bannerName + ".txt")
 	if err != nil {
