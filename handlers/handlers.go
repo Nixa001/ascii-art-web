@@ -23,7 +23,7 @@ func ServerHandler(w http.ResponseWriter, r *http.Request) {
 		errorPage(w, r, map[string]interface{}{"Output": data.Output, "TextErr": data.TextErr, "NumErr": data.NumErr})
 		return
 	}
-	tpl.ExecuteTemplate(w, "index.html", nil)
+	tpl.Execute(w, nil)
 
 }
 
@@ -46,6 +46,7 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		tpl.Execute(w, map[string]string{"Output": data.Output})
+		return
 	} else {
 		data.TextErr = "Bad Request"
 		data.NumErr = 400
@@ -56,5 +57,5 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 }
 func errorPage(w http.ResponseWriter, r *http.Request, data map[string]interface{}) {
 	tpl := template.Must(template.ParseFiles("templates/error.html"))
-	tpl.ExecuteTemplate(w, "error.html", data)
+	tpl.Execute(w, data)
 }

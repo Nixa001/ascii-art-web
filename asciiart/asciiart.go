@@ -33,7 +33,7 @@ func AsciiArt(textInput, bannerName string) (string, bool) {
 
 func generateAsciiArt(input string) string {
 	var result string
-	inputLines := strings.Split(input, "\\n")
+	inputLines := strings.Split(input, "\r\n")
 	for _, inputLine := range inputLines {
 		for i := 1; i < HeightChar; i++ {
 			for _, char := range inputLine {
