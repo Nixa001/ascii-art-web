@@ -8,12 +8,13 @@ import (
 
 var HeightChar = 9
 var tabChar = map[int][]string{}
+var errors bool
 
-func AsciiArt(textInput, bannerName string) string {
+func AsciiArt(textInput, bannerName string) (string, bool) {
 	var tabChars []string
 	scanner, err := ioutil.ReadFile("./asciiart/banner/" + bannerName + ".txt")
 	if err != nil {
-		return "Invalid Banner !!!"
+		return "Invalid Banner !!!", errors
 	}
 	data := bufio.NewScanner(strings.NewReader(string(scanner)))
 	for data.Scan() {
@@ -26,7 +27,7 @@ func AsciiArt(textInput, bannerName string) string {
 		tabChar[int(i)] = charLines
 
 	}
-	return generateAsciiArt(textInput)
+	return generateAsciiArt(textInput), !errors
 
 }
 
@@ -40,6 +41,8 @@ func generateAsciiArt(input string) string {
 					chars := int(char) - 32
 					line := tabChar[chars][i]
 					result += string(line)
+				} else {
+					return ("\"" + string(char) + "\"" + " is not printable in Ascii-Art")
 				}
 			}
 			result += "\n"
