@@ -8,7 +8,7 @@ import (
 
 var HeightChar = 9
 var tabChar = map[int][]string{}
-var errors bool
+var errors = true
 
 func AsciiArt(textInput, bannerName string) (string, bool) {
 	var tabChars []string
@@ -27,11 +27,11 @@ func AsciiArt(textInput, bannerName string) (string, bool) {
 		tabChar[int(i)] = charLines
 
 	}
-	return generateAsciiArt(textInput), !errors
+	return generateAsciiArt(textInput)
 
 }
 
-func generateAsciiArt(input string) string {
+func generateAsciiArt(input string) (string, bool) {
 	var result string
 	inputLines := strings.Split(input, "\r\n")
 	for _, inputLine := range inputLines {
@@ -42,11 +42,11 @@ func generateAsciiArt(input string) string {
 					line := tabChar[chars][i]
 					result += string(line)
 				} else {
-					return ("\"" + string(char) + "\"" + " is not printable in Ascii-Art")
+					return ("\"" + string(char) + "\"" + " is not printable in Ascii-Art"), errors
 				}
 			}
 			result += "\n"
 		}
 	}
-	return result
+	return result, !errors
 }

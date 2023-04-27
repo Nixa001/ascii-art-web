@@ -11,8 +11,6 @@
   html {
     font-family: 'Courier New', Courier, monospace;
     background-color: #fffbe8;
-
-
   }
 
   h1 {
@@ -40,7 +38,7 @@
   label {
     margin-left: 2px;
     font-weight: bold;
-    display: inline-block;
+    /* display: inline-block; */
   }
 
   input[type=submit] {
@@ -79,17 +77,17 @@
   }
 
   .col-100 {
-    width: 100%;
+    
+    width: 75%;
+    margin: auto;
     margin-top: 10px;
     background-color: #fff;
     font-size: large;
     font-weight: bold;
-    /* display: flex; */
-    /* justify-content: center;
-    align-items: center; */
-    color: #000;
-
-
+  }
+  pre{
+    overscroll-behavior-x: auto;  
+  overflow-x: scroll;
   }
 
   .row:after {
@@ -155,6 +153,7 @@
       <div class="row">
         <div class="col-100">
           <pre>{{.Output}}</pre>
+          <pre style="color: red;">{{.errOutput}}</pre>
           <!-- <textarea id="result" name="result" placeholder="Result here" style="height:450px" >  {{.Data}} </textarea> -->
         </div>
       </div>
