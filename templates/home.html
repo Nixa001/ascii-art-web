@@ -3,161 +3,67 @@
 
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="../static/style.css">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ascii-Art-Web</title>
+  <link rel="icon" type="image/png" href="../static/images/logo.png" />
+  <title>Ascii art web</title>
 </head>
-<style>
-  html {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #fffbe8;
-  }
-
-  h1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  body {
-    color: #4D4637;
-  }
-
-  input[type=text],
-  select,
-  textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #89B6A5;
-    border-radius: 4px;
-    box-sizing: border-box;
-    resize: vertical;
-  }
-
-  label {
-    margin-left: 2px;
-    font-weight: bold;
-    /* display: inline-block; */
-  }
-
-  input[type=submit] {
-    background-color: #C8A936;
-    font-weight: bold;
-    color: white;
-    margin-top: 6px;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
-  }
-
-  .container {
-    border-radius: 5px;
-    background-color: #fffbe8;
-    padding: 20px;
-  }
-
-  .col-25 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-  }
-
-  .col-75 {
-    float: left;
-    width: 50%;
-    margin-top: 6px;
-  }
-
-  option {
-    color: #4D4637;
-    font-weight: 500;
-  }
-
-  .col-100 {
-    
-    width: 50%;
-    margin: auto;
-    margin-top: 10px;
-    background-color: #fff;
-    font-size: large;
-    font-weight: bold;
-  }
-  pre{
-    overscroll-behavior-x: auto;  
-  overflow-x: scroll;
-  }
-
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
-  /* Responsive layout  */
-  @media screen and (max-width: 600px) {
-
-    .col-25,
-    .col-100,
-    .col-75,
-    input[type=submit] {
-      width: 100%;
-      margin-top: 0;
-    }
-  }
-</style>
 
 <body>
+  <header>
+
+    <nav>
+      <div class="navbar">
+        <div class="logo">
+          <!-- - <img src="images/logo.png" alt="">- -->
+        </div>
+        <ul class="logo">
+          <li><a href="http://localhost:8080">Home</a></li>
+          <li><a href="https://www.zone01dakar.sn/">Zone01 Dakar</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
   <div class="container">
+    <h1>Ascii Art Web</h1>
     <form action="/ascii-art" method="POST">
-      <h1>ASCII-ART-WEB</h1>
 
       <div class="row">
-        <div class="col-25">
-          <label></label>
-        </div>
+        <!-- <ul>
+          <h3>Usage:</h3>
+          <li>Write your text in the textarea</li>
+          <li>Select your banner</li>
+          <li>Click on the button Submit</li>
+        </ul> -->
         <div class="col-75">
-          <ul>
-            <h3>Usage:</h3>
-            <li>Write your text in the textarea</li>
-            <li>Select your banner</li>
-            <li>Click on the button Submit</li>
-          </ul>
         </div>
       </div>
       <div class="row">
-        <div class="col-25">
-          <label></label>
-        </div>
         <div class="col-75">
           <textarea type="text" name="inputValue" placeholder="Your text"></textarea>
         </div>
       </div>
-      <div class="row">
+      <div class="row" id = "row-25">
         <div class="col-25">
-        </div>
-        <div class="col-75">
           <label for="banner">Choise banner</label>
           <select id="banner" name="banner">
             <option value="standard">Standard</option>
             <option value="shadow">Shadow</option>
             <option value="thinkertoy">Thinkertoy</option>
           </select>
-          <div class="row">
-            <input type="submit" value="Submit">
-          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-100">
-          <pre>{{.Output}}</pre>
-          <pre style="color: red;">{{.errOutput}}</pre>
-          <!-- <textarea id="result" name="result" placeholder="Result here" style="height:450px" >  {{.Data}} </textarea> -->
+        <div class="submit">
+          <input type="submit" value="Submit">
         </div>
       </div>
     </form>
+  </div>
+  <div class="row">
+    <div class="col-100">
+      <pre>{{.Output}}</pre>
+      <!-- <pre style="color: red;">{{.errOutput}}</pre> -->
+    </div>
   </div>
 </body>
 
