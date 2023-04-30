@@ -16,7 +16,7 @@ main {
     width: 100%;
     background: url("images/background.png") no-repeat;
     background-position: center;
-    background-size:auto;
+    background-size:co;
 }
 
 ::selection {
