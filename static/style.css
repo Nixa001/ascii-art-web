@@ -5,6 +5,7 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     color: #2c3350;
+    
 }
 
 ::selection {
@@ -48,10 +49,12 @@ nav .logo a:hover {
 }
 
 h1 {
-    display: flex;
+    text-align: center;
+    font-size: 3vw;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 select,
@@ -169,6 +172,10 @@ pre {
     .col-100 {
         width: 98%;
         margin-top: 0;
+    }
+
+    h1{
+        font-size: 30px;
     }
 
     .submit {

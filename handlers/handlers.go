@@ -26,10 +26,11 @@ func ServerHandler(w http.ResponseWriter, r *http.Request) {
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	tpl := template.Must(template.ParseFiles("templates/home.html"))
-	if r.Method == "GET" {
-		http.Redirect(w, r, "/", http.StatusSeeOther)
-		return
-	} else if r.Method == "POST" {
+	// if r.Method == "GET" {
+	// 	http.Redirect(w, r, "/", http.StatusSeeOther)
+	// 	return
+	// } else 
+	if r.Method == "POST" {
 
 		input := r.FormValue("inputValue")
 		banner := r.FormValue("banner")

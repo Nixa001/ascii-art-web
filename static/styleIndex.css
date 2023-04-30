@@ -11,18 +11,19 @@ html::-webkit-scrollbar {
     display: none;
 }
 
-header {
+main {
     height: 100vh;
     width: 100%;
     background: url("images/background.png") no-repeat;
     background-position: center;
+    background-size:auto;
 }
 
 ::selection {
     background: #fcac12;
 }
 
-header nav {
+main nav {
     position: fixed;
     width: 100%;
     left: 0;
@@ -75,18 +76,18 @@ nav .logo a:hover {
     z-index: 12;
 }
 
-header .text-content .text1 {
+main .text-content .text1 {
     text-align: end;
     font-size: 27px;
     color: #2c3350;
 }
 
-header .text-content .text {
+main .text-content .text {
     font-size: 27px;
     color: #2c3350;
 }
 
-header .text-content .name {
+main .text-content .name {
     color: #2c3350;
     font-size: 75px;
     text-decoration: underline;
@@ -94,7 +95,7 @@ header .text-content .name {
     margin: -20px 0 0 -3px;
 }
 
-header .text-content .typing {
+main .text-content .typing {
     color: #2c3350;
     font-size: 40px;
     margin: 5px 0;
@@ -199,7 +200,7 @@ header .text-content .typing {
         font-size: 30px;
     }
 
-    header {
+    main {
         height: 100vh;
         width: 100%;
         background: url("images/background.png") no-repeat;
@@ -222,7 +223,7 @@ header .text-content .typing {
         font-size: 20px;
     }
 
-    header {
+    main {
         height: 100vh;
         width: 100%;
         background: url("images/background.png") no-repeat;
