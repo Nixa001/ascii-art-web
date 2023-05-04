@@ -49,13 +49,16 @@ nav .logo li {
 }
 
 nav .logo a {
-    color: #fcac12;
     font-size: 17px;
     font-weight: 500;
+}
+a{
+    color: #fcac12;
     text-decoration: none;
+
 }
 
-nav .logo a:hover {
+a:hover {
     color: #f05128;
 }
 

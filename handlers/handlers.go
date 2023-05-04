@@ -38,8 +38,9 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 		if about == "about" {
 			tmpl := template.Must(template.ParseFiles("templates/index.html"))
 			title := "About"
+			title2:="How to use it ?"
 			text := "Ascii-art-web consists in creating and running a server, in which it will be possible to use a web GUI (graphical user interface) version of the project ascii-art"
-			tmpl.Execute(w, map[string]string{"title": title, "text": text})
+			tmpl.Execute(w, map[string]string{"title": title, "text": text, "title2": title2})
 			return
 
 		}
