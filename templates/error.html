@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Error Page</title>
+  <link rel="icon" type="image/png" href="../static/images/logo.png" />
+  <title>Error</title>
 </head>
 <style>
   * {
@@ -13,18 +14,18 @@
   }
 
   .err {
-    font-size: 30px;
+    height: 70vh;
     font-family: sans-serif;
-    color: #888;
-    margin: 0;
+    color: #f05128;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* align-content: center; */
   }
 
-  input[type=submit] {
-    background-color: #C8A936;
+  .container {
+    background-image: linear-gradient(135deg, #fcac12 10%, #f05128 100%);
     font-weight: bold;
     color: white;
     padding: 12px 20px;
@@ -32,15 +33,36 @@
     border-radius: 4px;
     cursor: pointer;
   }
+
+  a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  .container:hover {
+    background-image: linear-gradient(135deg, #fcac12 10%, #fcac12 100%);
+
+  }
+
+  h1 {
+    font-size: 100px;
+  }
 </style>
 
 <body>
   <div class="err">
-    <h1>Error {{.NumErr}}</h1>
-    <h2>{{.TextErr}}</h2>
-    <form action="/">
-      <input type="submit" value="Home">
-    </form>
+    <h1>{{.NumErr}}</h1>
+    <p>{{.TextErr}}</p>
+    <li>
+      <a href="http://localhost:8080/">
+        <button class="container">Home</button>
+      </a>
+    </li>
   </div>
 </body>
 
