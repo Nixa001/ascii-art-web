@@ -10,7 +10,7 @@ var Output string
 var TextErr string
 var errNum int = http.StatusOK
 
-func ServerHandler(w http.ResponseWriter, r *http.Request) {
+func IndexHandle(w http.ResponseWriter, r *http.Request) {
 	tpl := template.Must(template.ParseFiles("templates/index.html"))
 	if r.URL.Path != "/" {
 		TextErr = "Page Not Found"
