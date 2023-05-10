@@ -3,18 +3,20 @@ package asciiart
 import (
 	"bufio"
 	"io/ioutil"
+	"net/http"
 	"strings"
 )
 
 var HeightChar = 9
 var tabChar = map[int][]string{}
-var errors = true
+var errNum int = 200
 
-func AsciiArt(textInput, bannerName string) (string, bool) {
+func AsciiArt(textInput, bannerName string) (string, int) {
 	var tabChars []string
 	scanner, err := ioutil.ReadFile("./asciiart/banner/" + bannerName + ".txt")
 	if err != nil {
-		return "Invalid Banner !!!", errors
+		errNum = http.StatusInternalServerError
+		return "Invalid Banner !!!", errNum
 	}
 	data := bufio.NewScanner(strings.NewReader(string(scanner)))
 	for data.Scan() {
@@ -31,7 +33,7 @@ func AsciiArt(textInput, bannerName string) (string, bool) {
 
 }
 
-func generateAsciiArt(input string) (string, bool) {
+func generateAsciiArt(input string) (string, int) {
 	var result string
 	inputLines := strings.Split(input, "\r\n")
 	for _, inputLine := range inputLines {
@@ -42,11 +44,13 @@ func generateAsciiArt(input string) (string, bool) {
 					line := tabChar[chars][i]
 					result += string(line)
 				} else {
-					return ("\"" + string(char) + "\"" + " is not printable in Ascii-Art"), errors
+					errNum = 400
+					return ("\"" + string(char) + "\"" + " is not printable in Ascii-Art"), errNum
 				}
 			}
 			result += "\n"
 		}
 	}
-	return result, !errors
+	errNum = 200
+	return result, errNum
 }
