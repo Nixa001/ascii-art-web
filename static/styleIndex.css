@@ -20,7 +20,7 @@ main {
 }
 
 ::selection {
-    background: #fcac12;
+    background: #38b6ff;
 }
 
 main nav {
@@ -53,13 +53,13 @@ nav .logo a {
     font-weight: 500;
 }
 a{
-    color: #fcac12;
+    color: #38b6ff;
     text-decoration: none;
 
 }
 
 a:hover {
-    color: #f05128;
+    color: #004aad;
 }
 
 .content {
@@ -129,7 +129,7 @@ main .text-content .typing {
 }
 
 .text-content .typing .one {
-    color: #f05128;
+    color: #004aad;
 }
 
 
@@ -147,13 +147,13 @@ main .text-content .typing {
     padding: 8px 16px;
     cursor: pointer;
     transition: all 0.3s ease;
-    /* background-color: #f05128; */
-    background-image: linear-gradient(135deg, #fcac12 10%, #f05128 100%);
+    /* background-color: #004aad; */
+    background-image: linear-gradient(135deg, #38b6ff 10%, #004aad 100%);
 }
 
 .buttons button:hover {
     transform: scale(1.1);
-    background-image: linear-gradient(135deg, #f05128 10%, #fcac12 100%);
+    background-image: linear-gradient(135deg, #004aad 10%, #38b6ff 100%);
 }
 
 .about {
@@ -179,7 +179,7 @@ main .text-content .typing {
 }
 
 .about h3 {
-    color: #fcac12;
+    color: #38b6ff;
     font-size: 40px;
     font-weight: 600;
     margin: -20px 0 0 -3px;
