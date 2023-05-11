@@ -10,6 +10,7 @@ var Output string
 var TextErr string
 var errNum int = http.StatusOK
 
+// tpl := template.Must(template.ParseFiles("templates/index.html"))
 func IndexHandle(w http.ResponseWriter, r *http.Request) {
 	tpl := template.Must(template.ParseFiles("templates/index.html"))
 	if r.URL.Path != "/" {
@@ -26,8 +27,6 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	tpl := template.Must(template.ParseFiles("templates/home.html"))
 	if r.Method == "POST" {
 
-		input := r.FormValue("inputValue")
-		banner := r.FormValue("banner")
 		btn := r.FormValue("btn")
 		if btn == "about" {
 			tmpl := template.Must(template.ParseFiles("templates/index.html"))
@@ -41,6 +40,9 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 			tpl.Execute(w, nil)
 			return
 		}
+
+		input := r.FormValue("inputValue")
+		banner := r.FormValue("banner")
 		Output, errNum = asciiart.AsciiArt(input, banner)
 		TextErr = "OK"
 		if errNum == http.StatusBadRequest {

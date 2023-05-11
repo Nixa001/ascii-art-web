@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-var HeightChar = 9
+const HeightChar = 9
 var tabChar = map[int][]string{}
 var errNum int = 200
 
