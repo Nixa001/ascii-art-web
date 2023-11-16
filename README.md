@@ -10,7 +10,7 @@
  - To use this program clone this Git repository on your local machine
 
 ```bash
-  git clone https://learn.zone01dakar.sn/git/nifaye/ascii-art-web
+  git clone https://github.com/Nixa001/ascii-art-web
 ```
 -  Open Terminal and install go packages
 ```bash
@@ -27,6 +27,6 @@
 
 ## Author
 
-- [@nifaye](https://learn.zone01dakar.sn/git/nifaye)
+- [@nixa001](https://github.com/Nixa001)
 
 ## Implementation details
